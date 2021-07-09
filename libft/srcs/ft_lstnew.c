@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lstnew.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 16:34:46 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/01/28 15:03:52 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/09 12:26:23 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*ptr;
 
-	if (!(ptr = malloc(sizeof(t_list))))
+	ptr = malloc(sizeof(t_list));
+	if (ptr == NULL)
 		return (NULL);
 	if (content == NULL)
 	{

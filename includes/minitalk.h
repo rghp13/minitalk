@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/15 13:34:33 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/09 13:33:44 by rponsonn         ###   ########.fr       */
+/*   Created: 2021/07/09 09:53:16 by rponsonn          #+#    #+#             */
+/*   Updated: 2021/07/09 10:48:41 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-static int	ft_isupper(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else
-		return (0);
-}
+# include "libft.h"
+# include "get_next_line.h"
+# include <stdio.h>
+# include <signal.h>
 
-int	ft_tolower(int c)
-{
-	if (ft_isupper(c))
-	{
-		c += 32;
-	}
-	return (c);
-}
+#endif

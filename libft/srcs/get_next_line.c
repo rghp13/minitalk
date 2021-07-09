@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 12:37:07 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/02/15 17:11:00 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/09 13:43:36 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_fnext(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -40,7 +40,7 @@ static char	*ft_staticclean(char **ptr)
 	return (ret);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char		data[BUFFER_SIZE + 1];
 	static char	*ptr;

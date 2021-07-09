@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 12:58:35 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/01/31 14:23:30 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/09 13:16:28 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static char	*ft_get_string(int *end, const char *s, char c)
 		i++;
 		num++;
 	}
-	if (!(ptr = malloc(sizeof(char) * num + 1)))
+	ptr = malloc(sizeof(char) * num + 1);
+	if (ptr == NULL)
 		return (NULL);
 	i = *end;
 	num = 0;
@@ -64,7 +65,7 @@ static int	ft_get_word_tally(const char *s, char c)
 	return (num);
 }
 
-char		**ft_split(const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	int		tally;
 	char	**tab;
@@ -76,7 +77,8 @@ char		**ft_split(const char *s, char c)
 	i = 0;
 	endpoint = 0;
 	tally = ft_get_word_tally(s, c);
-	if (!(tab = malloc(sizeof(char*) * (tally + 1))))
+	tab = malloc(sizeof(char *) * (tally + 1));
+	if (tab == NULL)
 		return (NULL);
 	tab[tally] = NULL;
 	while (i < tally)

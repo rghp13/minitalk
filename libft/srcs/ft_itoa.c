@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 15:21:06 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/04/20 13:26:48 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/09 12:22:30 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static char	*ft_arr2str(char *arr, int neg, int max)
 
 	i = 0;
 	c = max - 1;
-	if (!(ptr = malloc(sizeof(char) * max + neg + 1)))
+	ptr = malloc(sizeof(char) * max + neg + 1);
+	if (ptr == NULL)
 		return (NULL);
 	if (neg)
 		ptr[i++] = '-';
@@ -34,16 +35,17 @@ static char	*ft_arr2str(char *arr, int neg, int max)
 
 static char	*ft_zero_string(void)
 {
-	char *ptr;
+	char	*ptr;
 
-	if (!(ptr = malloc(sizeof(char) * 2)))
+	ptr = malloc(sizeof(char) * 2);
+	if (ptr == NULL)
 		return (NULL);
 	ptr[0] = '0';
 	ptr[1] = '\0';
 	return (ptr);
 }
 
-char		*ft_itoa(long int n)
+char	*ft_itoa(long int n)
 {
 	long int	num;
 	char		*ptr;

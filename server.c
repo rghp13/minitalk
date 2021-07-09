@@ -6,15 +6,11 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:04:23 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/08 15:23:20 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/09 11:35:09 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/includes/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <signal.h>
-#include <stdio.h>
+#include "includes/minitalk.h"
 
 /*
 **PERMITTED UNIX SIGNALS
@@ -46,7 +42,6 @@ int	ft_convert_pid_str(void)
 	free(pids);
 	free(temp);
 	return (0);
-	sigaction()
 }
 
 int main(void)

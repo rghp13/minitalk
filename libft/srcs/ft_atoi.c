@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 17:34:38 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/01/30 13:46:08 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/09 11:57:23 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_isspace(char str)
 {
-	int flag;
+	int	flag;
 
 	flag = 0;
 	if (str == ' ')
@@ -24,7 +24,7 @@ static int	ft_isspace(char str)
 	return (flag);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned long int	num;
 	int					i;

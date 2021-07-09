@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 15:21:06 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/04/16 14:35:25 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/09 11:56:04 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static char	*ft_arr2str(char *arr, int max)
 
 	i = 0;
 	c = max - 1;
-	if (!(ptr = malloc(sizeof(char) * (max + 1))))
+	ptr = malloc(sizeof(char) * (max + 1));
+	if (ptr == NULL)
 		return (NULL);
 	while (c >= 0)
 	{
@@ -32,16 +33,17 @@ static char	*ft_arr2str(char *arr, int max)
 
 static char	*ft_zero_string(void)
 {
-	char *ptr;
+	char	*ptr;
 
-	if (!(ptr = malloc(sizeof(char) * 2)))
+	ptr = malloc(sizeof(char) * 2);
+	if (ptr == NULL)
 		return (NULL);
 	ptr[0] = '0';
 	ptr[1] = '\0';
 	return (ptr);
 }
 
-char		*ft_utoa(unsigned n)
+char	*ft_utoa(unsigned int n)
 {
 	char		*ptr;
 	char		arr[12];

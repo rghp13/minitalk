@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   substr.c                                           :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 12:50:19 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/01/30 17:20:44 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/09 13:33:21 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (ft_strlen(s) < start)
 	{
-		if (!(ptr = malloc(sizeof(char) * 1)))
+		ptr = malloc(sizeof(char) * 1);
+		if (ptr == NULL)
 			return (NULL);
 		ptr[0] = '\0';
 		return (ptr);
@@ -29,7 +30,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	rlen = ft_strlen(s + start);
 	if (rlen < len)
 		len = rlen;
-	if (!(ptr = malloc(sizeof(char) * len + 1)))
+	ptr = malloc(sizeof(char) * len + 1);
+	if (ptr == NULL)
 		return (NULL);
 	ft_memcpy(ptr, s + start, len + 1);
 	ptr[len] = '\0';

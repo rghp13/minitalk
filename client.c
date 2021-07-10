@@ -24,52 +24,39 @@ int	main(int argc, char **argv)
 {
 	pid_t	s_pid;
 	char	*binary;
+	int i;
+	int k;
 
-	if (argc != 3)
+	k = 1;
+	if (argc < 3)
 		return (-1);
 	s_pid = ft_atoi(argv[1]);
-	binary = ft_conv_bin(argv[2]);
-	printf("%s\n", binary);
-	free(binary);
-}
-void	ft_conv_free(char *ptr1, char *ptr2, char *ptr3)
-{
-	free(ptr1);
-	free(ptr2);
-	free(ptr3);
-}
-
-char	*ft_conv_bin(char *src)
-{
-	char	*val;
-	char	*binstr;
-	char	*output;
-	char	*temp;
-	int	i;
-
-	i = 0;
-	if (src[i])
+	while (k < argc)
 	{
-		val = ft_convert_val_to_str((char)src[i++]);
-		output = ft_convert_base(val, BASE10, BASE2);
-		free(val);
+		i = 0;
+		while (argv[k][i])
+		{
+			ft_bit_check(argv[k][i++]);
+		}
+		ft_bit_check('\0');
+		pause();
+		k++;
 	}
-	while (src[i])
-	{
-		val = ft_convert_val_to_str(src[i++]);
-		binstr = ft_convert_base(val, BASE10, BASE2);
-		temp = ft_strjoin(output, binstr);
-		ft_conv_free(val, binstr, output);
-		output = temp;
-	}
-	return (output);
+	return (0);
 }
-//TODO: MAKE SURE THAT BINARY CONVERSION ARE ALWAYS 8BIT
 
-char	*ft_convert_val_to_str(char val)
+void	ft_bit_check(unsigned char bit, pid_t s_pid)
 {
-	char *stringval;
+	int bitmask;
 
-	stringval = ft_itoa((int)val);
-	return (stringval);
+	bitmask = 0b10000000;
+	while (bitmask)
+	{
+		if (bit & bitmask)
+			kill(s_pid, SIGUSR2);
+		else
+			kill(s_pid, SIGUSR1);
+		usleep(10);
+		bitmask >> 1;
+	}
 }

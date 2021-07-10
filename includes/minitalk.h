@@ -18,13 +18,7 @@
 # include <stdio.h>
 # include <signal.h>
 
-#define BASE10 "0123456789"
-#define BASE2 "01"
-
-char	*ft_conv_bin(char *src);
-int		ft_atoi_base(char *str, char *base);
-char	*ft_convert_base(char *nbr, char *base_from, char *base_to);
-char	*ft_convert_val_to_str(char val);
-void	ft_conv_free(char *ptr1, char *ptr2, char *ptr3);
+void	ft_bit_check(unsigned char bit, pid_t s_pid);
+void	ft_listen(void);
 
 #endif

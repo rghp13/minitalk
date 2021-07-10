@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	int i;
 	int k;
 
+	signal(SIGUSR1, ft_handler);
 	k = 1;
 	if (argc < 3)
 		return (-1);
@@ -43,6 +44,11 @@ int	main(int argc, char **argv)
 		k++;
 	}
 	return (0);
+}
+
+void	ft_handler(int num)
+{
+	printf("Message was received by Server\n");
 }
 
 void	ft_bit_check(unsigned char bit, pid_t s_pid)

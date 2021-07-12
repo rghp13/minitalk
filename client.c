@@ -22,12 +22,13 @@
 
 int	main(int argc, char **argv)
 {
+	struct sigaction sa;
 	pid_t	s_pid;
 	char	*binary;
 	int i;
 	int k;
 
-	signal(SIGUSR1, ft_handler);
+	sa.sa_sigaction =  ft_handler;
 	k = 1;
 	if (argc < 3)
 		return (-1);
@@ -37,18 +38,18 @@ int	main(int argc, char **argv)
 		i = 0;
 		while (argv[k][i])
 		{
-			ft_bit_check(argv[k][i++]);
+			ft_bit_check(argv[k][i++], s_pid);
 		}
-		ft_bit_check('\0');
+		ft_bit_check('\0', s_pid);
 		pause();
 		k++;
 	}
 	return (0);
 }
 
-void	ft_handler(int num)
+void	ft_handler(void)
 {
-	printf("Message was received by Server\n");
+	printf("Message was recieved\n");
 }
 
 void	ft_bit_check(unsigned char bit, pid_t s_pid)

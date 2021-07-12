@@ -4,17 +4,17 @@ DIR_HEAD	=	includes/
 
 DIR_LIB		=	libft/
 
-SRCS		=	${DIR_SRC}client.c ${DIR_SRC}client2.c
+SRCS		=	${DIR_SRC}client.c
 
-SRCS2		=	${DIR_SRC}server.c
+SRCS2		=	${DIR_SRC}server.c ${DIR_SRC}server2.c
 
 INCLUDES	=	${DIR_HEAD}get_next_line.h ${DIR_HEAD}libft.h ${DIR_HEAD}minitalk.h
 
 OBJS		=	$(SRCS:.c=.o)
 OBJS2		=	${SRCS2:.c=.o}
 
-PROG1		=	Client.out
-PROG2		=	Server.out
+NAME		=	Client.out
+NAME2		=	Server.out
 
 LIBFT_A		=	libft.a
 CC			=	gcc

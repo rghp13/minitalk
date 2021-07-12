@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   client2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:04:23 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/12 16:19:02 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/12 19:00:07 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minitalk.h"
+#include "minitalk.h"
 
 
 int	ft_convert_pid_str(void)

@@ -6,11 +6,11 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 12:26:36 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/10 18:22:04 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/12 18:59:57 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minitalk.h"
+#include "minitalk.h"
 
 /*
 **a.out 12345 "hello world"

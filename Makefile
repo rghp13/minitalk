@@ -28,18 +28,20 @@ all:		${NAME}
 
 ${NAME}:	${NAME2} ${OBJS}
 			make -C ${DIR_LIB}
+			mv ${DIR_LIB}${LIBFT_A} ${LIBFT_A}
 			${CC} ${CFLAGS} -I${DIR_HEAD} -o ${NAME} ${OBJS} ${LIBFT_A}
 
 
 ${NAME2}:	${OBJS2}
 			make -C ${DIR_LIB}
+			mv ${DIR_LIB}${LIBFT_A} ${LIBFT_A}
 			${CC} ${CFLAGS} -I${DIR_HEAD} -o ${NAME2} ${OBJS2} ${LIBFT_A}
 clean:		
 			make -C ${DIR_LIB} clean
 			${RM} ${OBJS} ${OBJS2}
 fclean:		clean
 			make -C ${DIR_LIB} fclean
-			${RM} ${NAME} ${NAME2}
+			${RM} ${NAME} ${NAME2} ${LIBFT_A}
 re:			fclean all
 
 .PHONY:		all clean fclean re

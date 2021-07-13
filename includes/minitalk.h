@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 09:53:16 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/12 16:20:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/13 19:08:06 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef struct s_array
 {
+	pid_t pid;
     int count;
     int bit;
     char buff[100];
@@ -29,12 +30,12 @@ typedef struct s_array
 void	ft_bit_check(unsigned char bit, pid_t s_pid);
 void    ft_listen(void);
 int ft_convert_pid_str(void);
-int	ft_store_bit(int sig, siginfo_t *si, void *arg);
+void	ft_store_bit(int sig, siginfo_t *si, void *arg);
 void	ft_init(void);
 int	ft_add_bit(int sigval);
 int	ft_check_null(void);
 int	ft_write_buffer(void);
-
-
+void	ft_handler(int sig, siginfo_t *si, void *arg);
+void	ft_bit_check(unsigned char bit, pid_t s_pid);
 
 #endif

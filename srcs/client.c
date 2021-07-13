@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 12:26:36 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/12 18:59:57 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/13 19:09:25 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int	main(int argc, char **argv)
 {
 	struct sigaction sa;
 	pid_t	s_pid;
-	char	*binary;
 	int i;
 	int k;
 
 	sa.sa_sigaction =  ft_handler;
+	(void)sa;
 	k = 1;
 	if (argc < 3)
 		return (-1);
@@ -47,8 +47,11 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-void	ft_handler(void)
+void	ft_handler(int sig, siginfo_t *si, void *arg)
 {
+	(void)sig;
+	(void)si;
+	(void)arg;
 	printf("Message was recieved\n");
 }
 
@@ -63,7 +66,7 @@ void	ft_bit_check(unsigned char bit, pid_t s_pid)
 			kill(s_pid, SIGUSR2);
 		else
 			kill(s_pid, SIGUSR1);
-		usleep(10);
-		bitmask >> 1;
+		usleep(1000);
+		bitmask = bitmask >> 1;
 	}
 }

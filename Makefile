@@ -13,8 +13,8 @@ INCLUDES	=	${DIR_HEAD}get_next_line.h ${DIR_HEAD}libft.h ${DIR_HEAD}minitalk.h
 OBJS		=	$(SRCS:.c=.o)
 OBJS2		=	${SRCS2:.c=.o}
 
-NAME		=	Client.out
-NAME2		=	Server.out
+NAME		=	Client
+NAME2		=	Server
 
 LIBFT_A		=	libft.a
 CC			=	gcc

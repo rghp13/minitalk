@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 12:26:36 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/13 19:09:25 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/15 11:56:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 
 	sa.sa_sigaction =  ft_handler;
 	(void)sa;
-	k = 1;
+	k = 2;
 	if (argc < 3)
 		return (-1);
 	s_pid = ft_atoi(argv[1]);

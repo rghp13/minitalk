@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:04:23 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/13 18:51:53 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/15 12:19:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
 t_array buffer;
-
-
 
 int main(void)
 {
@@ -23,7 +21,11 @@ int main(void)
 	ft_init();
 	ft_convert_pid_str();
 	(void)sa;
-	sa.sa_sigaction = ft_store_bit;
+	sa.sa_sigaction = &ft_store_bit;
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
+	//signal(SIGUSR1, ft_store_bit);
+	//signal(SIGUSR2, ft_store_bit);
 	while (1)
 		sleep(1);
 	return (0);

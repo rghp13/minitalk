@@ -22,12 +22,13 @@ int main(void)
 	ft_convert_pid_str();
 	(void)sa;
 	sa.sa_sigaction = &ft_store_bit;
+	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	//signal(SIGUSR1, ft_store_bit);
 	//signal(SIGUSR2, ft_store_bit);
 	while (1)
-		sleep(1);
+		usleep(100);
 	return (0);
 }
 
@@ -36,7 +37,7 @@ void	ft_init(void)
 {
 	buffer.bit = 0;
 	buffer.count = 0;
-	ft_memset(buffer.buff, 0, 100);
+	ft_memset(buffer.buff, 0, BUFFSIZE);
 }
 
 int	ft_add_bit(int sigval)
@@ -70,7 +71,7 @@ int	ft_check_null(void)
 		kill(buffer.pid, SIGUSR1);
 		//return (1);
 	}
-	else if (buffer.count >= 98)//triggers on too many chars, wipes buffer and resets for more uses, reduced from 100 to 98 for edge case protections
+	else if (buffer.count >= (BUFFSIZE - 2))//triggers on too many chars, wipes buffer and resets for more uses, reduced from 100 to 98 for edge case protections
 	{
 		write(1,buffer.buff, ft_strlen(buffer.buff));//best to strlen instead of trust the count
 		ft_init();

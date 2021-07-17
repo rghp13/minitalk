@@ -19,7 +19,7 @@ NAME2		=	Server
 LIBFT_A		=	libft.a
 CC			=	gcc
 RM			=	rm -f
-CFLAGS		=	-Wall -Werror -Wextra -g
+CFLAGS		=	-Wall -Werror -Wextra
 
 .c.o:
 				${CC} ${CFLAGS} -I${DIR_HEAD} -c $< -o ${<:.c=.o}

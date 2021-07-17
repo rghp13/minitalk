@@ -17,13 +17,14 @@
 # include "get_next_line.h"
 # include <stdio.h>
 # include <signal.h>
-
+#define BUFFSIZE 500
+//do not let buffsize go below 5
 typedef struct s_array
 {
 	pid_t pid;
     int count;
     int bit;
-    char buff[100];
+    char buff[BUFFER_SIZE];
 }              t_array;
 
 

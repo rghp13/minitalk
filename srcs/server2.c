@@ -6,13 +6,13 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:04:23 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/15 19:53:55 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/19 17:36:13 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-extern t_array buffer;
+extern t_array	g_buffer;
 
 int	ft_convert_pid_str(void)
 {
@@ -24,7 +24,7 @@ void	ft_store_bit(int sig, siginfo_t *si, void *arg)
 {
 	(void)arg;
 	(void)sig;
-	buffer.pid = si->si_pid;//I forgot to capture the pid for later use
+	g_buffer.pid = si->si_pid;
 	if (sig == SIGUSR1)
 		ft_add_bit(0);
 	else if (sig == SIGUSR2)

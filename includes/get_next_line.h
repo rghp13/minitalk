@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 12:41:01 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/02/14 17:11:12 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:29:41 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char	*ft_gnl_strjoin(char **s1, const char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 size_t	ft_strlen(const char *s);
+int	ft_loop(char *ptr, int *ret, int *fd, char *data);
 
 #endif

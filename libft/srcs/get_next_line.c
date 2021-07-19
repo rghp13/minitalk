@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 12:37:07 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/09 13:43:36 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:30:11 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,7 @@ int	get_next_line(int fd, char **line)
 	ret = read(fd, data, BUFFER_SIZE);
 	data[ret] = '\0';
 	ptr = ft_gnl_strjoin(&ptr, data);
-	while ((ft_fnext(ptr) < 0) && ((ret = read(fd, data, BUFFER_SIZE)) > 0))
-	{
-		data[ret] = '\0';
-		ptr = ft_gnl_strjoin(&ptr, data);
-	}
+	ft_loop(ptr, &ret, &fd, data);
 	if ((ft_fnext(ptr)) >= 0)
 	{
 		*line = ft_substr(ptr, 0, ft_fnext(ptr));
@@ -65,5 +61,24 @@ int	get_next_line(int fd, char **line)
 	*line = ft_strdup(ptr);
 	free(ptr);
 	ptr = NULL;
+	return (0);
+}
+
+/*
+**Had to remove
+** while ((ft_fnext(ptr) < 0) && ((ret = read(fd, data, BUFFER_SIZE)) > 0))
+*/
+
+int	ft_loop(char *ptr, int *ret, int *fd, char *data)
+{
+	while (ft_fnext(ptr) < 0)
+	{
+		*ret = read(*fd, data, BUFFER_SIZE);
+		if (*ret > 0)
+		{
+			data[*ret] = '\0';
+			ptr = ft_gnl_strjoin(&ptr, data);
+		}
+	}
 	return (0);
 }

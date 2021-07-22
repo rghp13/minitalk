@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 12:26:36 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/22 18:08:01 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/22 17:22:02 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 /*
 **a.out 12345 "hello world"
@@ -31,11 +31,7 @@ int	main(int argc, char **argv)
 	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
 	if (argc != 3)
-	{
-		printf("Program requires exactly two arguments\n");
-		printf("ARG1 = PID\nARG2 = STRING\n");
 		return (-1);
-	}
 	s_pid = ft_atoi(argv[1]);
 	i = 0;
 	while (argv[2][i])
@@ -43,6 +39,7 @@ int	main(int argc, char **argv)
 		ft_bit_check(argv[2][i++], s_pid);
 	}
 	ft_bit_check('\0', s_pid);
+	pause();
 	return (0);
 }
 
@@ -51,8 +48,7 @@ void	ft_handler(int sig, siginfo_t *si, void *arg)
 	(void)sig;
 	(void)si;
 	(void)arg;
-	printf("This Program received a signal it should not have\n");
-	exit(-1);
+	write(1, "Message was received\n", 21);
 }
 
 void	ft_bit_check(unsigned char bit, pid_t s_pid)

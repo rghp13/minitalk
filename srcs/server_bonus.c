@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 11:04:23 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/07/22 17:48:40 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/07/22 17:15:04 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 t_array	g_buffer;
 
@@ -66,6 +66,7 @@ int	ft_check_null(void)
 		write(1, g_buffer.buff, ft_strlen(g_buffer.buff));
 		write(1, "\n", 1);
 		ft_init();
+		kill(g_buffer.pid, SIGUSR1);
 	}
 	else if (g_buffer.count >= (BUFFSIZE - 2))
 	{
